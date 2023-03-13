@@ -43,5 +43,23 @@ int main(){
     }
     
 
+    // taking inputs from a user into a two dimensional array
+    cout<<"\n\nTaking inputs from a user into a two dimensional array"<<endl;
+    int my_arr4[3][2];
+    for(int i=0;i<3;i++){
+        for(int j=0;j<2;j++){
+            cout<<"Enter the value of my_arr4["<<i<<"]["<<j<<"]"<<endl;
+            cin>>my_arr4[i][j];
+        }
+    }
+
+    cout<<"\n\nPrinting the array"<<endl;
+    //print the array
+    for(int i=0;i<3;i++){
+        for(int j=0;j<2;j++){
+            cout<<"my_arr4["<<i<<"]["<<j<<"] = "<<my_arr4[i][j]<<endl;
+        }
+    }
+
 
 }
