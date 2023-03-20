@@ -22,12 +22,18 @@ class student{
             age = Age;
         }
         
-        void calculate_cwa(list<float> &grades){
+        void calculate_cwa(list<float> &grades, list<int> &weight){
             // calculate cwa
-            float average = 0;
-            for(float i : grades){
-                average += i;
+            float total_grade = 0;
+            int total_weight = 0;
+            for(int i=0; i<8; i++){
+                total_grade += grades.front() * weight.front();
+                total_weight += weight.front();
+                grades.pop_front();
+                weight.pop_front();
             }
+            cwa = total_grade/total_weight;
+            student_class();
         }
 
 
@@ -61,6 +67,7 @@ int main(){
     int age;
     list<float> grades;
     list<string> courses;
+    list<int> Weight;
 
     cout<<"\t\t\t\tStudent Details"<<endl;
     cout<<"student name: ";
@@ -71,16 +78,20 @@ int main(){
     getline(cin, major);
     cout<<"student age: ";
     cin>>age;
-    cout<<"Courses and grades\n"<<endl;
-    for(int i=0; i<5; i++){
+    cout<<"Enter courses with their corresponding weights and grade\n"<<endl;
+    for(int i=0; i<8; i++){
         string course;
         float grade;
+        int weight;
         cout<<"Course "<<i+1<<": ";
         cin>>course;
+        cout<<"Weight: ";
+        cin>>weight;
         cout<<"Grade: ";
         cin>>grade;
         courses.push_back(course);
         grades.push_back(grade);
+        Weight.push_back(weight);
     }
     
     student student1(name, student_id, major, age);
@@ -92,9 +103,10 @@ int main(){
     cout<<"Do you want to calculate cwa? (1 for yes, 0 for no): ";
     cin>>response;
     if(response == 1){
-        student1.calculate_cwa(grades);
+        student1.calculate_cwa(grades, Weight);
         cout<<"CWA calculated successfully"<<endl;
         sleep(1);
+        system("clear");
         student1.print_info();
     }else{
         exit(0);
