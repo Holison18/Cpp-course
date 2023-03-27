@@ -49,13 +49,13 @@ class scientist:public employee{
         string publication;
     public:
         // create a getter function
-        void get_data(){
+        void get_data_sci(){
             employee::get_data();
             cout<<"Publications ";cin>>publication;
         }
 
         // print data 
-        void show_data(){
+        void show_data_sci(){
             employee::show_data();
             cout<<"Publications: "<<publication<<endl;
             
@@ -63,6 +63,11 @@ class scientist:public employee{
 };
 
 class laborer:public employee{
+
+};
+
+// multiple inheritance
+class foreman:public manager, public scientist{
 
 };
 
@@ -74,13 +79,18 @@ int main(){
 
     // instantiate a scientist object
     scientist s1;
-    s1.get_data();
-    s1.show_data();
+    s1.get_data_sci();
+    s1.show_data_sci();
 
     // instantiate a laborer object
     laborer l1;
     l1.get_data();
     l1.show_data();
+
+    // instantiate a foreman object
+    foreman f1;
+    f1.get_data_sci();
+    f1.show_data_sci();
 
     return 0;
 
