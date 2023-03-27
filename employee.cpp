@@ -71,6 +71,11 @@ class foreman:public manager, public scientist{
 
 };
 
+// multiple level inheritance
+class matron:public laborer{
+
+};
+
 int main(){
     // instantiate a manager object
     manager m1;
@@ -91,6 +96,12 @@ int main(){
     foreman f1;
     f1.get_data_sci();
     f1.show_data_sci();
+
+    // instantiate a matron object
+    matron m2;
+    m2.get_data();
+    m2.show_data();
+    
 
     return 0;
 
