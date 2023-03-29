@@ -125,6 +125,7 @@ int main(){
         apt1.rent_out();
     }else if(response == 2){
         apt1.add_apartment();
+        // go back to main menu
     }else
         exit(0);
 
